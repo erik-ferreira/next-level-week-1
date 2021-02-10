@@ -1,0 +1,99 @@
+Para criar o projeto React:
+    -> npx create-react-app frontend --template=typescript
+
+Para rodar o projeto:
+    -> npm start 
+
+    JSX: Sintaxe de XML dentro do Javascript
+
+* Propriedades no React com Typescript:
+    No App.tsx:
+        import Header from './Header'
+
+        return (
+            <div>
+                <Header title="Hello World"/>
+            </div>
+        )
+
+    No Header.tsx:
+        interface HeaderProps {
+            title?: string;
+        }
+        -> Sem o ponto de interrogação(?) eu torno essa propriedade obrigatória,
+        com o ponto de interrogação(?) ela é opcional.
+
+        const Header: React.FC<HeaderProps> = (props) => {
+            return (
+                <header>
+                    <h1> {props.title} </h1>
+                </header>
+            )
+        }
+
+        React.FC = Function Component = Um componente escrito em formato de função
+
+Criando pastas:
+    src > pages: 
+            Home > index.tsx && style.css
+            CreatePoint > index.tsx && style.css
+
+npm install react-icons -> lib de icones
+
+npm install react-router-dom -> lib para lidar com elementos de roteamento
+
+Criar a estrutura do cadastro de pontos de coleta
+
+Integrar o mapa no formulário
+    leaflet -> mapa (https://leafletjs.com/)
+    react-leaflet -> para fazer a interrogação (https://react-leaflet.js.org/)
+
+Buscando ítens de coleta da api
+    npm install axios
+        src > services > api.ts
+
+    * Sempre que criar um estado para um array ou para um objeto, 
+        preciso informar manualmente o tipo da variável, usando o "interface"
+
+        interface ItemsProps {
+            id: number;
+            title: string;
+            image_url: string;
+        }
+
+        const [items, setItems] = useState<ItemsProps[]>([])
+
+Buscando estados e cidades do IBGE
+    Site: https://servicodados.ibge.gov.br/api/docs/localidades
+    UFs: https://servicodados.ibge.gov.br/api/v1/localidades/estados
+    Cidades por municipio: https://servicodados.ibge.gov.br/api/v1/localidades/estados/{ID-DO-ESTADO}/municipios
+
+    * https://github.com/typescript-cheatsheets/react
+
+Opção para o usuário selecionar uma localidade no mapa
+    import { useMapEvents } from 'react-leaflet'
+    import { LeafletMouseEvent } from 'leaflet'
+    const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0,0])
+
+
+Carregar a localização atual do usuário no mapa
+    navigator.geolocation.getCurrentPosition(position => {})
+
+
+              {/* <TextInput 
+            style={styles.selectInput}
+            placeholder="Digite a UF"
+            value={uf}
+            onChangeText={text => setUf(text)}
+            maxLength={2}
+            autoCapitalize="characters"
+            autoCorrect={false}
+          />
+
+          <TextInput 
+            style={styles.selectInput}
+            placeholder="Digite a cidade"
+            value={city}
+            onChangeText={text => setCity(text)}
+            autoCorrect={false}
+          /> */}
