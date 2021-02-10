@@ -30,4 +30,4 @@ Se você acha que o Typescript atrapalha quem é iniciante, ou que não esta pre
     <img src=".github/insomnia.png" width="100%">
 </h1>
 
-Baixo o [Insomnia](https://insomnia.rest), clique em `Application > Preferences > Data > Import Data > From URL`, e cole a seguinte url ``
+Baixo o [Insomnia](https://insomnia.rest), clique em `Application > Preferences > Data > Import Data > From URL`, e cole a seguinte url `https://github.com/erik-ferreira/next-level-week-1/blob/main/Insomnia_2021-02-10.json`
